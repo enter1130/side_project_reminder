@@ -14,4 +14,8 @@ class Memo extends Model
     public function notification(){
         return $this->hasOne(Notification::class,'Memo_ID','id');
     }
+
+    public function file(){
+        return $this->belongsTo(MemoFile::class,'File_ID','id');
+    }
 }
