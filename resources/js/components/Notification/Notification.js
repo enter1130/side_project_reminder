@@ -19,12 +19,15 @@ function Notification() {
     useEffect(()=>{
         getData()
     },[])
+
+    const returnResult=()=>getData()
+
     if(!data) return (<></>)
     return (
         <div className='text-center'>
             <NotificationDeleteAll />
             {data.data?(data.data.map((item,i)=>(
-                <NotificationDelete key={item.id} data={item} />
+                <NotificationDelete key={item.id} data={item} result={returnResult} />
             ))):'暫無提醒'}
         </div>
     );

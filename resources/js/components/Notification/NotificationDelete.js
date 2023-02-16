@@ -13,7 +13,7 @@ function NotificationDelete(props) {
         .set('X-API-Key', 'foobar')
         .set('accept', 'json')
         .end((err, res) => {
-            JSON.parse(res.text).result
+            props.result(JSON.parse(res.text).result)
         });
     }
 
