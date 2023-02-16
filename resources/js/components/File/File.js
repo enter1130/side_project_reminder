@@ -29,7 +29,7 @@ function File() {
             <div className="mb-3 row">
                 {data.data.map((item)=>(
                     <div key={item.id} className="col-6">
-                        <div onClick={()=>window.location.href=`/file?id=${item.id}`} className='border rounded-3 d-flex flex-column align-items-center justify-content-center' style={{minHeight:'200px',minWidth:'200px'}}>
+                        <div onClick={()=>window.location.href=`/file?id=${item.id}`} className='border rounded-3 d-flex flex-column align-items-center justify-content-center' style={{minHeight:'200px',minWidth:'200px',backgroundColor:item.color,color:item.text}}>
                             <h1><AiFillFolderOpen /></h1>
                             <h2>{item.title}</h2>
                         </div>

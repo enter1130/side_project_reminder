@@ -33,6 +33,10 @@ class MemoFileController extends Controller
         $comment='失敗';
         $data=new MemoFile();
         $data->title=$request->title;
+        $data->color=$request->color;
+        if($request->text=='true'){
+            $data->text='rgba(255,255,255,1)';
+        }
         $query=$data->save();
         if($query){
             $comment='成功';

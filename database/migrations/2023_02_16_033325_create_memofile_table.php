@@ -15,6 +15,8 @@ class CreateMemofileTable extends Migration
     {
         Schema::create('memofile', function (Blueprint $table) {
             $table->id();
+            $table->string('text')->comment('文件夾文字顏色')->default('rgba(0,0,0,1)');
+            $table->string('color')->comment('文件夾顏色')->default('rgba(13,180,185,0.5)');
             $table->string('title')->comment('提醒事項文件夾標題');
             $table->timestamps();
             $table->softDeletes();
