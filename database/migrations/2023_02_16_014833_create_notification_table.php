@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDismissTable extends Migration
+class CreateNotificationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateDismissTable extends Migration
      */
     public function up()
     {
-        Schema::create('dismiss', function (Blueprint $table) {
+        Schema::create('notification', function (Blueprint $table) {
             $table->id();
-            $table->string('date')->comment('延遲日期')->nullable();
+            $table->string('Memo_ID')->comment('提醒事項ID');
+            $table->string('date')->comment('通知時間')->nullable();
+            $table->boolean('dismiss')->comment('暫時無視')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -28,6 +30,6 @@ class CreateDismissTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dismiss');
+        Schema::dropIfExists('notification');
     }
 }

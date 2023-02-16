@@ -25,10 +25,10 @@ function Memo() {
     return (
         <div className='text-center'>
             <div className="mb-3 row">
-                <div className="col-sm-1">#</div>
-                <div className="col-sm-5">提醒事項</div>
-                <div className="col-sm-5">期限</div>
-                <div className="col-sm-1">操作</div>
+                <div className="col-1">#</div>
+                <div className="col-5">提醒事項</div>
+                <div className="col-5">期限</div>
+                <div className="col-1">操作</div>
             </div>
             {data.data?(data.data.map((item,i)=>(
                 <MemoUpdate key={item.id} number={i+1} data={item} result={returnResult} />

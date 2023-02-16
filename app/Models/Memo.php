@@ -10,4 +10,8 @@ class Memo extends Model
 {
     use HasFactory,SoftDeletes;
     protected $table='memo';
+
+    public function notification(){
+        return $this->hasOne(Notification::class,'Memo_ID','id');
+    }
 }

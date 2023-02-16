@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiFillBell } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
 function Menu() {
@@ -12,7 +13,7 @@ function Menu() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to='/memo' >Memo</Link>
+                            <Link className="nav-link" to='/notification' >通知中心 <AiFillBell /></Link>
                         </li>
                     </ul>
                 </div>

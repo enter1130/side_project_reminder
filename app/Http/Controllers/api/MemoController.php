@@ -10,18 +10,16 @@ use Illuminate\Http\Request;
 class MemoController extends Controller
 {
     public function warning(){
-        $result=false;
         $data=array();
-        foreach(Memo::orderBy('date','desc')->where('done',0)->take(4)->get() as $item){
-            if($item->date<=Carbon::now()->addDay(3)){
+        foreach(Memo::orderBy('date','desc')->where('done',0)->take(4)->with('notification')->get() as $item){
+            if($item->date<=Carbon::now()->addDay(3) && !$item->notification){
                 array_push($data,$item);
             }
         }
         if(count($data)!=0){
-            $result=true;
-            return response()->json(['result'=>$result,'data'=>$data]);
+            return $data;
         }
-        return response()->json(['result'=>$result]);
+        return $data;
     }
 
     public function index(){

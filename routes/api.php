@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\MemoController;
+use App\Http\Controllers\api\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/memo', [MemoController::class,'index']);
-Route::get('/memo.warning', [MemoController::class,'warning']);
 Route::post('/memo.store', [MemoController::class,'store']);
 Route::post('/memo.update', [MemoController::class,'update']);
+
+Route::get('/notification.warning', [NotificationController::class,'warning']);
+Route::post('/notification.dismiss', [NotificationController::class,'dismiss']);
+Route::get('/notification', [NotificationController::class,'index']);
+Route::post('/notification.delete', [NotificationController::class,'delete']);
+Route::delete('/notification.delete.all', [NotificationController::class,'deleteAll']);

@@ -24,14 +24,14 @@ function MemoStore(props) {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-3 row align-items-center">
-            <div className="col-sm-1">{props.number}</div>
-            <div className="col-sm-5">
+            <div className="col-1">{props.number}</div>
+            <div className="col-5">
                 <input type="text" className='form-control' id='title' name="title" required />
             </div>
-            <div className="col-sm-5">
+            <div className="col-5">
                 <input type="date" className='form-control' id='date' name="date" required />
             </div>
-            <div className="col-sm-1">
+            <div className="col-1">
                 <button type="submit" className='btn' ><AiOutlineCheckCircle /></button>
             </div>
             </div>
