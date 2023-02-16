@@ -32,11 +32,11 @@ php artisan storage:link
 設置.env資料庫參數：
 ```
 DB_CONNECTION=mysql
-DB_HOST=目標資料庫的ip
-DB_PORT=3306
-DB_DATABASE=esg_rank
-DB_USERNAME=admin
-DB_PASSWORD=admin
+DB_HOST=資料庫ip
+DB_PORT=資料庫port
+DB_DATABASE=資料庫名稱
+DB_USERNAME=資料庫帳號
+DB_PASSWORD=資料庫密碼
 ```
 ```
 php artisan migrate --seed
