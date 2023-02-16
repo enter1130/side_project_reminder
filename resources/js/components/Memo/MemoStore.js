@@ -9,6 +9,7 @@ function MemoStore(props) {
 
     function onSubmit(){
         let data=new FormData();
+        data.append('File_ID',props.file.id)
         data.append('title',document.getElementById('title').value)
         data.append('date',document.getElementById('date').value)
         superagent.post(link)

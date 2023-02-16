@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/memo/{id}', [HomeController::class,'Index'])->name('Home');
 Route::get('/{path?}', [HomeController::class,'Index'])->name('Home');

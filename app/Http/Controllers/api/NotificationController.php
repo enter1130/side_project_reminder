@@ -33,6 +33,7 @@ class NotificationController extends Controller
         return false;
     }
 
+    //清除通知
     public function delete(Request $request){
         $result=false;
         $comment='失敗';
@@ -48,6 +49,7 @@ class NotificationController extends Controller
         return response()->json(['result'=>$result,'comment'=>$comment]);
     }
 
+    //清除全部通知
     public function deleteAll(){
         $result=false;
         $comment='失敗';
@@ -59,6 +61,7 @@ class NotificationController extends Controller
         return response()->json(['result'=>$result,'comment'=>$comment]);
     }
 
+    //提醒事項通知
     public function warning(){
         $result=false;
         $warning=app(MemoController::class)->warning();
@@ -75,6 +78,7 @@ class NotificationController extends Controller
         return response()->json(['result'=>$result]);
     }
 
+    //無視通知
     public function dismiss(Request $request){
         $comment='失敗';
         $data=Notification::find($request->id);

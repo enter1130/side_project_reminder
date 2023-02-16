@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\MemoController;
+use App\Http\Controllers\api\MemoFileController;
 use App\Http\Controllers\api\NotificationController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/file',[MemoFileController::class,'index']);
+Route::get('/file.memo',[MemoFileController::class,'show']);
+Route::post('/file.store',[MemoFileController::class,'store']);
 
 Route::get('/memo', [MemoController::class,'index']);
 Route::post('/memo.store', [MemoController::class,'store']);

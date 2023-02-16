@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import MemoStore from './MemoStore';
 import MemoUpdate from './MemoUpdate';
 function Memo() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
     var [data,setData]=useState(null);
-    const link='/api/memo';
+    const link=`/api/file.memo?id=${urlParams.get('id')}`;
     function getData(){
         fetch(link,{
             method:'GET',
@@ -24,16 +27,17 @@ function Memo() {
     if(!data) return (<></>)
     return (
         <div className='text-center'>
+            <h1>{data.data.title}</h1>
             <div className="mb-3 row">
                 <div className="col-1">#</div>
                 <div className="col-5">提醒事項</div>
                 <div className="col-5">期限</div>
                 <div className="col-1">操作</div>
             </div>
-            {data.data?(data.data.map((item,i)=>(
+            {data.data?(data.data.memo.map((item,i)=>(
                 <MemoUpdate key={item.id} number={i+1} data={item} result={returnResult} />
             ))):'暫無提醒'}
-            <MemoStore number={data.data.length+1} result={returnResult} />
+            <MemoStore number={data.data.memo.length+1} file={data.data} result={returnResult} />
         </div>
     );
 }

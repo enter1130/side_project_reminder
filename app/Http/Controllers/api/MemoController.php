@@ -9,19 +9,6 @@ use Illuminate\Http\Request;
 
 class MemoController extends Controller
 {
-    public function warning(){
-        $data=array();
-        foreach(Memo::orderBy('date','desc')->where('done',0)->take(4)->with('notification')->get() as $item){
-            if($item->date<=Carbon::now()->addDay(3) && !$item->notification){
-                array_push($data,$item);
-            }
-        }
-        if(count($data)!=0){
-            return $data;
-        }
-        return $data;
-    }
-
     public function index(){
         $result=false;
         $data=Memo::orderBy('date','desc')->get();
@@ -36,6 +23,7 @@ class MemoController extends Controller
         $result=false;
         $comment='失敗';
         $data=new Memo();
+        $data->File_ID=$request->File_ID;
         $data->title=$request->title;
         $data->date=$request->date;
         $query=$data->save();
@@ -57,5 +45,19 @@ class MemoController extends Controller
             $result=$query;
         }
         return response()->json(['result'=>$result,'comment'=>$comment]);
+    }
+
+    // 檢查事項是否到期
+    public function warning(){
+        $data=array();
+        foreach(Memo::orderBy('date','desc')->where('done',0)->take(4)->with('notification')->get() as $item){
+            if($item->date<=Carbon::now()->addDay(3) && !$item->notification){
+                array_push($data,$item);
+            }
+        }
+        if(count($data)!=0){
+            return $data;
+        }
+        return $data;
     }
 }

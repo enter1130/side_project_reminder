@@ -15,6 +15,7 @@ class CreateMemoTable extends Migration
     {
         Schema::create('memo', function (Blueprint $table) {
             $table->id();
+            $table->integer('File_ID')->comment('提醒事項文件夾ID');
             $table->string('title')->comment('提醒事項標題');
             $table->string('detail')->comment('提醒事項內容')->nullable();
             $table->boolean('done')->comment('是否完成')->default(false);

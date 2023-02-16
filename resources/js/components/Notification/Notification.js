@@ -25,7 +25,7 @@ function Notification() {
     if(!data) return (<></>)
     return (
         <div className='text-center'>
-            <NotificationDeleteAll />
+            <NotificationDeleteAll result={returnResult} />
             {data.data?(data.data.map((item,i)=>(
                 <NotificationDelete key={item.id} data={item} result={returnResult} />
             ))):'暫無提醒'}
