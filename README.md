@@ -45,12 +45,12 @@ php artisan migrate --seed
 ## 啟動命令
 執行系統
 ```
-php artisan serve
+php artisan serve --port=8001
 ```
 
 瀏覽器執行:
 ```
-http://localhost:8000
+http://localhost:8001
 ```
 
 ### v1.0.0
