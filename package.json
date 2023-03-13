@@ -28,6 +28,7 @@
         "react-hook-form": "^7.43.1",
         "react-icons": "^4.7.1",
         "react-router-dom": "^6.8.1",
+        "react-swipe-to-delete-component": "^1.0.8",
         "superagent": "^8.0.9",
         "swr": "^2.0.3",
         "tinycolor2": "^1.6.0"

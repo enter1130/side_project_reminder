@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
 import NotificationDelete from './NotificationDelete';
 import NotificationDeleteAll from './NotificationDeleteAll';
 
@@ -26,9 +28,11 @@ function Notification() {
     return (
         <div className='text-center'>
             <NotificationDeleteAll result={returnResult} />
+            <div className="list-group">
             {data.data?(data.data.map((item,i)=>(
                 <NotificationDelete key={item.id} data={item} result={returnResult} />
             ))):'暫無提醒'}
+            </div>
         </div>
     );
 }
