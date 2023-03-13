@@ -1,5 +1,4 @@
 import React from 'react';
-// import { AiFillDelete } from "react-icons/ai";
 import SwipeToDelete from 'react-swipe-to-delete-component';
 import 'react-swipe-to-delete-component/dist/swipe-to-delete.css';
 function NotificationDelete(props) {
@@ -20,16 +19,12 @@ function NotificationDelete(props) {
 
     return (
         <>
-        <SwipeToDelete onDelete={()=>onDelete()}>
+        <SwipeToDelete classNameTag='rounded mb-3' onDelete={()=>onDelete()}>
         <a className="list-group-item pt-3">
             <h4 className="list-group-item-heading">{props.data.memo.title}</h4>
             <p className="list-group-item-text">{props.data.date}</p>
-            {/* <div className="col-sm-2">
-                <button className="btn btn-light rounded-3" onClick={()=>onDelete()}>清除 <AiFillDelete /></button>
-            </div> */}
         </a>
         </SwipeToDelete>
-        <hr></hr>
         </>
     );
 }

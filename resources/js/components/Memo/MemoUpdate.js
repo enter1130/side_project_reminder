@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 
 function MemoUpdate(props) {
@@ -32,8 +33,8 @@ function MemoUpdate(props) {
         <div className="mb-3 row">
             <div className="col-1">{props.number}</div>
             <div className="col-4">{doned(props.data.title)}</div>
-            <div className="col-3">{props.data.date_start}</div>
-            <div className="col-3">{props.data.date_end}</div>
+            <div className="col-3">{moment(props.data.date_start).format('YYYY/MM/DD, h:mm:ss a')}</div>
+            <div className="col-3">{moment(props.data.date_end).format('YYYY/MM/DD, h:mm:ss a')}</div>
             <div className="col-1">
                 <input className="form-check-input" id='done' onChange={()=>onSubmit()} checked={props.data.done} type="checkbox" />
             </div>
