@@ -19,7 +19,8 @@ class CreateMemoTable extends Migration
             $table->string('title')->comment('提醒事項標題');
             $table->string('detail')->comment('提醒事項內容')->nullable();
             $table->boolean('done')->comment('是否完成')->default(false);
-            $table->string('date')->comment('完成期限')->nullable();
+            $table->string('date_start')->comment('開始時間')->nullable();
+            $table->string('date_end')->comment('完成期限')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

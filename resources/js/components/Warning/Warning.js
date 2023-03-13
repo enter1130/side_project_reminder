@@ -1,5 +1,5 @@
 import React from 'react';
-import { Toast, ToastContainer } from 'react-bootstrap';
+import { Toast } from 'react-bootstrap';
 import useSWR from 'swr';
 function Warning() {
     const superagent = require('superagent');
@@ -23,14 +23,14 @@ function Warning() {
     if(!data) return (<></>)
     if(!data.result) return (<></>)
     return (
-        <ToastContainer position='top-end'>
-            {data.data.map((item)=>(
-                <Toast key={item.id} onClose={()=>onDimiss(item.id)}>
-                    <Toast.Header><strong className="me-auto">即將到期</strong></Toast.Header>
-                    <Toast.Body>{item.memo.title}</Toast.Body>
-                </Toast>
-            ))}
-        </ToastContainer>
+        data.data.map((item)=>(
+            <Toast key={item.id} className='mb-3' onClose={()=>onDimiss(item.id)}>
+                <Toast.Header><strong className="me-auto">即將到期</strong></Toast.Header>
+                <Toast.Body className='text-start'>
+                        {item.memo.title}
+                </Toast.Body>
+            </Toast>
+        ))
     );
 }
 

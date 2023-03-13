@@ -25,7 +25,8 @@ class MemoController extends Controller
         $data=new Memo();
         $data->File_ID=$request->File_ID;
         $data->title=$request->title;
-        $data->date=$request->date;
+        $data->date_start=$request->date_start;
+        $data->date_end=$request->date_end;
         $query=$data->save();
         if($query){
             $comment='成功';
@@ -50,7 +51,7 @@ class MemoController extends Controller
     // 檢查事項是否到期
     public function warning(){
         $data=array();
-        foreach(Memo::orderBy('date','desc')->where('done',0)->take(4)->with('notification')->get() as $item){
+        foreach(Memo::orderBy('date_end','desc')->where('done',0)->take(4)->with('notification')->get() as $item){
             if($item->date<=Carbon::now()->addDay(3) && !$item->notification){
                 array_push($data,$item);
             }

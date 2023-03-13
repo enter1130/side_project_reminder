@@ -31,8 +31,9 @@ function MemoUpdate(props) {
     return (
         <div className="mb-3 row">
             <div className="col-1">{props.number}</div>
-            <div className="col-5">{doned(props.data.title)}</div>
-            <div className="col-5">{props.data.date}</div>
+            <div className="col-4">{doned(props.data.title)}</div>
+            <div className="col-3">{props.data.date_start}</div>
+            <div className="col-3">{props.data.date_end}</div>
             <div className="col-1">
                 <input className="form-check-input" id='done' onChange={()=>onSubmit()} checked={props.data.done} type="checkbox" />
             </div>
