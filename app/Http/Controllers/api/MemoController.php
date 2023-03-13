@@ -11,7 +11,7 @@ class MemoController extends Controller
 {
     public function index(){
         $result=false;
-        $data=Memo::with('file')->orderBy('date','desc')->get();
+        $data=Memo::with('file')->orderBy('date_end','desc')->get();
         if($data){
             $result=true;
             return response()->json(['result'=>$result,'data'=>$data]);

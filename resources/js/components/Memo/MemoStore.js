@@ -11,7 +11,7 @@ function MemoStore(props) {
         let data=new FormData();
         data.append('File_ID',props.file.id)
         data.append('title',document.getElementById('title').value)
-        data.append('date_start',document.getElementById('date_end').value)
+        data.append('date_start',document.getElementById('date_start').value)
         data.append('date_end',document.getElementById('date_end').value)
         superagent.post(link)
         .send(data) // sends a JSON post body

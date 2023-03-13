@@ -25,13 +25,13 @@ function FileStore(props) {
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-3 row align-items-center">
-                <div className="col-4">
+                <div className="col-2">
                     <label>文件夾名稱</label>
                 </div>
-                <div className="col-3">
+                <div className="col-8">
                     <input type="text" className='form-control' id='title' name="title" required />
                 </div>
-                <div className="col-3">
+                <div className="col-1">
                     <input type="color" style={{minHeight:'37.02px'}} className='form-control' id='color' name="color" required />
                 </div>
                 <div className="col-1">
